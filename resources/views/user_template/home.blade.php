@@ -18,9 +18,13 @@
                             <div class="tshirt_img"><img src="{{ asset($product->product_img)}}"></div>
                             <div class="btn_main">
                               <div class="buy_bt">
-                                 <form action="{{ route('addproducttocart',$product->id) }}" method="POST">
+                                 <form action="{{ route('addproducttocart') }}" method="POST">
                                  @csrf
                                  <input type="hidden" value="{{ $product->id }}" name="product_id">
+                                 <input type="hidden" value="{{ $product->price }}" name="price">
+                                 <input type="hidden" value="1" name="quantity">
+
+
                                  <input type="submit" class="btn btn-warning" value="Buy Now">
                                  </form>
                              </div>

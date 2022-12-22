@@ -24,13 +24,15 @@
 
                 </div>
                 <div class="btn_main">
-                    <form action="{{ route('addproducttocart',$product->id) }}" method="POST">
+                    <form action="{{ route('addproducttocart') }}" method="POST">
                         @csrf
                         <input type="hidden" value="{{ $product->id }}" name="product_id">
+                        <input type="hidden" value="{{ $product->price }}" name="price">
+
                         <div class="form-group">
                             
-                        <label for="product_quantity">How Many Products?</label>
-                        <input class="form-control" type="number" min="1" placeholder="1" name="product_quantity">
+                        <label for="quantity">How Many Products?</label>
+                        <input class="form-control" type="number" min="1" placeholder="1" name="quantity">
                         </div>
                         <input type="submit" class="btn btn-warning" value="Add To Cart">
                     </form>
@@ -52,9 +54,12 @@
                       <div class="btn_main">
                         
                          <div class="buy_bt">
-                            <form action="{{ route('addproducttocart',$product->id) }}" method="POST">
+                            <form action="{{ route('addproducttocart') }}" method="POST">
                             @csrf
-                            <input type="hidden" value="{{ $product->id }}" name="product_id">
+                                <input type="hidden" value="{{ $product->id }}" name="product_id">
+                                 <input type="hidden" value="{{ $product->price }}" name="price">
+                                 <input type="hidden" value="1" name="quantity">
+
                             <input type="submit" class="btn btn-warning" value="Buy Now">
                             </form>
                         </div>
