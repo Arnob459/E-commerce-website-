@@ -54,6 +54,11 @@ Route::middleware(['auth','role:user'])->group(function(){
     Route::controller(ClientController::class)->group(function(){
         Route::get('/add-to-cart','AddToCart')->name('addtocart');
         Route::post('/add-product-to-cart','AddProductToCart')->name('addproducttocart');
+        Route::get('/shipping-address','GetShippingAddress')->name('shippingaddress');
+        Route::post('/add-shipping-info','AddShipingInfo')->name('addshippinginfo');
+        Route::post('/place-order','PlaceOrder')->name('placeorder');
+
+        
 
         Route::get('/checkout','Checkout')->name('checkout');
         Route::get('/user-profile','UserProfile')->name('userprofile');
@@ -63,6 +68,7 @@ Route::middleware(['auth','role:user'])->group(function(){
 
         Route::get('/todays-deal','TodaysDeal')->name('todaysdeal');
         Route::get('/customer-service','CustomerService')->name('customerservice');
+        Route::get('/remove-cart-item/{id}','RemoveCartItem')->name('removeitem');
     });
 });
 
